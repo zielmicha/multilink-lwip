@@ -1,27 +1,31 @@
-set(LWIP_SOURCES
-    src/core/timers.c
-    src/core/udp.c
-    src/core/memp.c
-    src/core/init.c
-    src/core/pbuf.c
-    src/core/tcp.c
-    src/core/tcp_out.c
-    src/core/sys.c
-    src/core/netif.c
-    src/core/def.c
-    src/core/mem.c
-    src/core/tcp_in.c
-    src/core/stats.c
-    src/core/inet_chksum.c
-    src/core/ipv4/icmp.c
-    src/core/ipv4/ip4.c
-    src/core/ipv4/ip4_addr.c
-    src/core/ipv4/ip_frag.c
-    src/core/ipv6/ip6.c
-    src/core/ipv6/nd6.c
-    src/core/ipv6/icmp6.c
-    src/core/ipv6/ip6_addr.c
-    src/core/ipv6/ip6_frag.c
-    custom/sys.c
-)
-badvpn_add_library(lwip "system" "" "${LWIP_SOURCES}")
+include_directories(
+  ${CMAKE_CURRENT_LIST_DIR}/src/include
+  ${CMAKE_CURRENT_LIST_DIR}/src/include/ipv4
+  ${CMAKE_CURRENT_LIST_DIR}/src/include/ipv6
+  ${CMAKE_CURRENT_LIST_DIR}/custom)
+
+add_library(lwip STATIC
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/timers.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/udp.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/memp.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/init.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/pbuf.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/tcp.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/tcp_out.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/sys.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/netif.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/def.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/mem.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/tcp_in.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/stats.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/inet_chksum.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv4/icmp.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv4/ip4.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv4/ip4_addr.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv4/ip_frag.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv6/ip6.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv6/nd6.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv6/icmp6.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv6/ip6_addr.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/core/ipv6/ip6_frag.c
+    ${CMAKE_CURRENT_LIST_DIR}/custom/sys.c)
